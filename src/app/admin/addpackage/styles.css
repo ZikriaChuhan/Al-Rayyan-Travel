@@ -1,0 +1,41 @@
+.h1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.input {
+    display: block;
+    width: 300px;
+    height: 35px;
+    margin: auto;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 1px solid #a1a1a1;
+}
+
+.txtarea {
+    display: block;
+    width: 300px;
+    height: 80px;
+    margin: auto;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: 1px solid #a1a1a1;
+}
+
+.btn12 {
+    display: block;
+    width: 300px;
+    height: 35px;
+    margin: auto;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-radius: 10px;
+    background-color: rgb(20, 80, 177);
+    color: aliceblue;
+    
+}

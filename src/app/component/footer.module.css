@@ -1,0 +1,168 @@
+.footer {
+  position: relative;
+  background-color: #152B5A;
+  color: white;
+  padding: 40px 0;
+  font-family: 'Heebo', sans-serif;
+  overflow: hidden;
+  /* Ensure pseudo-element is contained */
+
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../image/our-services-bg-image.png');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+  /* Adjust opacity here */
+  z-index: 0;
+  /* Ensure it is behind the footer content */
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  /* Ensure it is above the pseudo-element */
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.column {
+
+  margin: 0 20px;
+}
+
+.heading {
+  font-size: 18px;
+  margin-bottom: 20px;
+
+}
+
+.heading1 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  padding-left: 48px;
+}
+
+
+.list {
+
+  list-style: none;
+  padding: 0;
+
+}
+
+.column ul {
+  padding-left: 48px;
+}
+
+.link {
+  color: #BBCAEA;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+  transition: color 0.3s;
+}
+
+.link a {
+  color: #BBCAEA;
+  text-decoration: none;
+
+  transition: color 0.3s;
+}
+
+.link:hover {
+  color: #ffffff;
+}
+
+.link a:hover {
+  color: #ffffff;
+}
+
+.info {
+  color: #BBCAEA;
+  margin-bottom: 10px;
+}
+
+.button {
+  background-color: #ffffff;
+  color: #001544;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 35px;
+  font-size: large;
+  letter-spacing: 2px;
+}
+
+.faphone {
+  padding-right: 8px;
+}
+
+.button:hover {
+  background-color: #d7d7d7;
+}
+
+.logowhite {
+  width: 150px;
+  height: auto;
+
+}
+
+.bottom {
+  text-align: center;
+  padding: 20px 0 0;
+  border-top: 1px solid #ffffff51;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.bottominerdiv {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.bottominerdiv h4 {
+  font-size: 12px;
+  padding-left: 12px;
+  color: #BBCAEA;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+
+  .column ul {
+    padding: 0px;
+  }
+
+  .heading1 {
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+  .bottominerdiv h4 {
+    font-size: 12px;
+    padding-top: 12px;
+    color: #BBCAEA;
+  }
+
+}

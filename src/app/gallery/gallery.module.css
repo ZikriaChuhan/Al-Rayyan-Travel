@@ -1,0 +1,153 @@
+.divaboutimg {
+    position: relative;
+    width: 100%;
+    height: 310px; 
+    overflow: hidden;
+}
+
+.aboutimg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #002a57b8; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    z-index: -1;
+}
+
+.overlay h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.overlay p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.abouttxt {
+    padding: 50px 180px;
+    text-align: center;
+}
+
+.h3dark {
+    color: #152B5A;
+    font-size: 50px;
+}
+
+.h3light {
+    margin-top: -88px;
+    color: rgba(21, 43, 90, 0.108); 
+    font-size: 90px;
+}
+
+.abouttxt p {
+    font-size: 20px;
+    color: #152B5A;
+}
+
+.videodiv {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    padding-bottom: 35px;
+}
+.galleryvideo1 {
+    width: 200px;
+    margin: 10px;
+}
+.galleryvideo3 {
+    width: 200px;
+    margin: 10px;
+}
+
+
+
+.divaboutimg2 {
+    position: relative;
+    width: 100%;
+    height: 450px; 
+    overflow: hidden;
+}
+
+.aboutimg2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.overlay2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #002a57b8; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    z-index: -1;
+}
+
+.overlay2 h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.overlay2 p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.button12 {
+    background-color: #ffffff00;
+    color: aliceblue;
+    border-width: 2px;
+    border-radius: 20px;
+    border-color: #9fbdff;
+    padding: 8px 16px 8px 16px;
+    margin-top: 15px;
+    font-size: large;
+    transition: all 350ms ease;
+}
+.button12:hover {
+    background-color: #ffffff;
+    color: rgba(240, 248, 255, 0);
+    padding: 10px 18px 10px 18px;
+
+}
+
+@media only screen and (max-width: 600px){
+    .abouttxt {
+        padding: 50px 20px ;
+    }
+    .h3dark {
+        color: #152B5A;
+        font-size: 40px;
+    }
+    
+    .h3light {
+        margin-top: -88px;
+        color: rgba(21, 43, 90, 0.108); 
+        font-size: 70px;
+    }
+}
