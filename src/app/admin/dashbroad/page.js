@@ -1,13 +1,11 @@
 "use client"
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from "next/link";
-import styles from './dashbroad.module.css'
+import styles from './dashbroad.module.css';
 import Deletepackage from '@/lib/deletepackage';
 import AuthWrapper from "../../component/AuthWrapper";
 import { signOut } from "next-auth/react";
-
-
 
 const getPackage = async () => {
   const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
@@ -16,20 +14,26 @@ const getPackage = async () => {
   if (data.success) {
     return data.result;
   } else {
-    return { success: false }
+    return [];
   }
 }
 
+export default function Dashbroad() {
+  const [packages, setPackages] = useState([]);
 
-export default async function Dashbroad() {
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getPackage();
+      setPackages(data);
+    };
 
-  const packages = await getPackage();
+    fetchData();
+  }, []);
 
   return (
     <AuthWrapper>
-
       <div className={styles.headdiv}>
-        <h1>Welcom to Dashbroad</h1>
+        <h1>Welcome to Dashboard</h1>
       </div>
       <div className={styles.logoutdiv}>
         <button className={styles.btnlogout} onClick={() => signOut()}>LogOut</button>
@@ -50,38 +54,31 @@ export default async function Dashbroad() {
             </tr>
           </thead>
           <tbody>
-
-            {
-              packages.map((i) => (
-                <tr key={i._id} >
-                  <td><img src={i.image} className={styles.productImage} /></td>
-                  <td>{i.name}</td>
-                  <td>{i.price}</td>
-                  <td>
-                    <label className={styles.switch}>
-                      <input type="checkbox" />
-                      <span className={styles.slider}></span>
-                    </label>
-                  </td>
-                  <td>
-
-                    <span className={styles.permission} >
-                      {i.shortdes}
-                    </span>
-
-                  </td>
-                  <td>
-                    <a href={"../admin/" + i._id} className={styles.editButton}>Edit</a>
-                    <Deletepackage id={i._id} />
-                  </td>
-                </tr>
-              ))
-            }
-
+            {packages.map((pkg) => (
+              <tr key={pkg._id}>
+                <td><img src={pkg.image} className={styles.productImage} alt={pkg.name} /></td>
+                <td>{pkg.name}</td>
+                <td>{pkg.price}</td>
+                <td>
+                  <label className={styles.switch}>
+                    <input type="checkbox" />
+                    <span className={styles.slider}></span>
+                  </label>
+                </td>
+                <td>
+                  <span className={styles.permission}>
+                    {pkg.shortdes}
+                  </span>
+                </td>
+                <td>
+                  <Link href={"../admin/" + pkg._id} className={styles.editButton}>Edit</Link>
+                  <Deletepackage id={pkg._id} />
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
-
-   </AuthWrapper>
-  )
+    </AuthWrapper>
+  );
 }
