@@ -1,5 +1,5 @@
 import { connectionStr } from "@/lib/db";
-import {User} from "@/lib/model/usermodel"; // Ensure the import is consistent with the export from the model file
+import {User} from "@/lib/model/usermodel"; 
 import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 import bcrypt from 'bcrypt';
@@ -8,41 +8,41 @@ import crypto from 'crypto';
 
 export async function POST(req) {
     try {
-        // Parse the request body
+     
         const body = await req.json();
         const { email, password } = body;
 
-        // Validate email and password
+      
         if (!email || !password) {
             return NextResponse.json({ msg: "Invalid fields" }, { status: 400 });
         }
 
-        // Establish database connection
+        
         await connectionStr();
 
-        // Check if user exists
+      
         const isUserPresent = await User.findOne({ email });
         if (!isUserPresent) {
-            return NextResponse.json({ msg: "User is not available" }, { status: 404 }); // Changed status to 404 (Not Found)
+            return NextResponse.json({ msg: "User is not available" }, { status: 404 }); 
         }
 
-        // Check if password matches
+        
         const isPasswordMatch = await bcrypt.compare(password, isUserPresent.password);
         if (!isPasswordMatch) {
-            return NextResponse.json({ msg: "Invalid Credentials" }, { status: 401 }); // Changed status to 401 (Unauthorized)
+            return NextResponse.json({ msg: "Invalid Credentials" }, { status: 401 }); 
         }
 
-        // Generate JWT token
-        const privateKey = process.env.JWT_SECRET || crypto.randomUUID(); // Use environment variable for secret key if available
+        
+        const privateKey = process.env.JWT_SECRET || crypto.randomUUID();
         const name = isUserPresent.name;
-        const token = jwt.sign({ email, name }, privateKey, { expiresIn: '8h' }); // Token expires in 1 hour
+        const token = jwt.sign({ email, name }, privateKey, { expiresIn: '8h' }); 
 
-        // Set cookie in response
+       
         const response = NextResponse.json({ msg: "User successfully logged in", success: true }, { status: 200 });
         response.cookies.set("token", token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production', // Use secure flag in production
-            maxAge: 3600, // Cookie expires in 1 hour
+            secure: process.env.NODE_ENV === 'production', 
+            maxAge: 3600, 
             path: '/',
         });
 

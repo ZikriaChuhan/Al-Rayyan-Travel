@@ -15,7 +15,7 @@ const LogIn = () => {
 
   useEffect(() => {
     if (status === "authenticated") {
-      router.replace("/admin/dashbroad");  // Fix typo in dashboard path
+      router.replace("/admin/dashbroad");  
     }
   }, [status, router]);
 
@@ -32,7 +32,7 @@ const LogIn = () => {
     if (res?.error) {
       setError("Invalid email or password");
     } else {
-      router.replace("/admin/dashbroad");  // Navigate to dashboard on successful login
+      router.replace("/admin/dashbroad");  
     }
   };
 

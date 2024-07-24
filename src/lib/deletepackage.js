@@ -6,7 +6,7 @@ import styles from "../app/admin/dashbroad/dashbroad.module.css"
 export default function Deletepackage({id}){
   const router = useRouter();
    const deleteRecord=async() =>{
-    let response = await fetch("http://localhost:3000/api/packages/" + id, {
+    let response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/packages/${id}`, {
         method: "DELETE",
     });
     response = await response.json();

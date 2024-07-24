@@ -9,8 +9,8 @@ const AuthWrapper = ({ children }) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (status === "loading") return; // Do nothing while loading
-    if (!session) signIn(); // If not authenticated, force sign in
+    if (status === "loading") return; 
+    if (!session) signIn(); 
   }, [session, status, router]);
 
   if (status === "loading") {
@@ -18,7 +18,7 @@ const AuthWrapper = ({ children }) => {
   }
 
   if (!session) {
-    return null; // Or a loading spinner
+    return null; 
   }
 
   return children;

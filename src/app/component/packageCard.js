@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 const getPackage = async () => {
-  let data = await fetch("http://localhost:3000/api/packages", { cache: "no-cache" });
+  let data = await fetch("/api/packages", { cache: "no-cache" });
   data = await data.json();
   if (data.success) {
     return data.result;

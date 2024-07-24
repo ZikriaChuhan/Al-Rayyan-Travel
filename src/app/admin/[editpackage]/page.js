@@ -19,7 +19,7 @@ export default function Editpackage(props) {
     const getPackageDetail = async () => {
         try {
             let packageId = props.params.editpackage;
-            let response = await fetch("http://localhost:3000/api/packages/" + packageId);
+            let response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/packages/${packageId}`);
 
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -46,7 +46,7 @@ export default function Editpackage(props) {
     const updatePackage = async () => {
         try {
             let packageId = props.params.editpackage;
-            let response = await fetch("http://localhost:3000/api/packages/" + packageId, {
+            let response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/packages/${packageId}`, {
                 method: "PUT",
                 headers: {
                     'Content-Type': 'application/json'

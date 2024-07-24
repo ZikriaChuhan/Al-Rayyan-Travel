@@ -7,9 +7,11 @@ import Deletepackage from '@/lib/deletepackage';
 import AuthWrapper from "../../component/AuthWrapper";
 import { signOut } from "next-auth/react";
 
-const getPackage = async () => {
 
-  let data = await fetch("http://localhost:3000/api/packages", { cache: "no-cache" });
+
+const getPackage = async () => {
+  const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  let data = await fetch(`${apiBaseUrl}/api/packages`, { cache: "no-cache" });
   data = await data.json();
   if (data.success) {
     return data.result;

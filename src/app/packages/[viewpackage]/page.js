@@ -5,7 +5,7 @@ import Footer1 from "../../component/footer";
 import "./styles.css"
 
 async function fetchPackageData(viewpackage) {
-    const response = await fetch(`http://localhost:3000/api/package/${viewpackage}`, { cache: "no-cache" });
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/package/${viewpackage}`, { cache: "no-cache" });
     const packageData = await response.json();
     return packageData;
   }
